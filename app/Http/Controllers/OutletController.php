@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -12,7 +13,7 @@ class OutletController extends Controller
      */
     public function index()
     {
-        $outlets = Outlet::latest()->paginate(25);
+        $outlets = Outlet::oldest()->paginate(5);
 
         return view('outlets.index', compact('outlets'));
     }

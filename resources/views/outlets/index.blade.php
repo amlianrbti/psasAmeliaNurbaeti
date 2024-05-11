@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 11 Import Export Excel to Database</title>
+    <title>PSAS Amelia Nurbaet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
       
-<div class="container">
-    <div class="card mt-5">
         <h3 class="card-header p-3"><i class="fa-solid fa-user"></i> Tugas Amelia Nurbaeti</h3>
         <div class="card-body">
             <a href="{{ route('outlets.create') }}" class="btn"><i class="fa-solid fa-plus">Tambah</i></a>
@@ -24,9 +22,12 @@
                     <th>update_at</th>
                     <th>Action</th>
                 </tr>
+                @php 
+                $id =1;
+                @endphp
                 @foreach($outlets as $outlet)
                 <tr>
-                    <td>{{ $outlet->id }}</td>
+                    <td>{{ $id++ }}</td>
                     <td>{{ $outlet->code }}</td>
                     <td>{{ $outlet->name }}</td>
                     <td>{{ $outlet->status }}</td>
@@ -44,16 +45,11 @@
                 </tr>
                 @endforeach
             </table>
-    
+            {{ $outlets->links() }}
         </div>
-    </div>
-</div>
-       
+
+        <footer style="position: fixed; bottom: 0; width: 100%; background-color: rgb(165, 245, 237); text-align:center;">
+            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) by Amelia Nurbaeti Web Programming 11
+        </footer>
 </body>
-<footer>
-    <div class="container"
-    style="text-align:center; background-color:azure">
-        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) by Amelia Nurbaeti Web Programming 11
-    </div>
-</footer>
 </html>
